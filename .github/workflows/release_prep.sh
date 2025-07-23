@@ -20,4 +20,4 @@ set -o errexit -o nounset -o pipefail
 # foo
 # EOF
 
-./prepare_release.py --tag $1
+.github/workflows/prepare_release.py --tag $1
