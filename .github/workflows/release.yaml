@@ -38,3 +38,12 @@ jobs:
       tag_name: ${{ inputs.tag_name }}
       mount_bazel_caches: false
       bazel_test_command: "/bin/true"
+  publish:
+    needs: release
+    uses: ./.github/workflows/publish.yaml
+    with:
+      #tag_name: ${{ inputs.tag_name || github.ref_name }}
+      tag_name: ${{ inputs.tag_name }}
+    secrets:
+      #publish_token: ${{ secrets.publish_token || secrets.BCR_PUBLISH_TOKEN }}
+      publish_token: ${{secrets.BCR_PUBLISH_TOKEN }}
