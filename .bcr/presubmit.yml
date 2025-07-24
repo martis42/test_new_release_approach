@@ -1,0 +1,11 @@
+bcr_test_module:
+  matrix:
+    platform: [ "ubuntu2204"]
+    bazel: [ "8.x" ]
+  tasks:
+    exec_tests:
+      name: "Do tests"
+      platform: ${{ platform }}
+      bazel: ${{ bazel }}
+      shell_commands:
+        - bazel test //...
